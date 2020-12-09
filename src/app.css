@@ -1,82 +1,180 @@
 * {
+  margin:0;
+  padding:0;
+  font-family: inherit;
   box-sizing: border-box;
 }
 
+html, body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 10px;
+}
+
 button {
+  display:inline-block;
   outline: none;
   border: 0;
+  appearance: none;
+  background-color: transparent;
   cursor: pointer;
 }
 
-.navbar {
-  font-size: 2rem;
-  padding: 1em;
-  background-color: blanchedalmond;
+input {
+  outline: 0;
+  border: 0;
+  appearance: none;
+  padding: 5px 0 4px;
+  border-bottom:1px solid #b5b5b5;
+  background-color: transparent;
 }
 
-.navbar-logo {
-  color: green;
-  margin-right: 0.5em;
+.navbar {
+  padding: 1.5em 2em;
+  border-bottom: 1px solid #ececec;
+  background-color: #fff;
+}
+
+.navbar-title {
+  display:inline-block;
+  font-size: 1.7rem;
+  font-weight: bold;
+  line-height: 2.4rem;
+  vertical-align: middle;
 }
 
 .navbar-count {
+  position: relative;
   display: inline-block;
-  text-align: center;
-  font-size: 2rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  line-height: 2.5rem;
-  margin-left: 0.2em;
-  background-color: green;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-left: 0.5em;
+  z-index:1;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.7rem;
+  line-height: 2.4rem;
   color: white;
+  text-align: center;
+  vertical-align: middle;
+  letter-spacing: -1px;
+}
+
+.navbar-count:before {
+  content:'';
+  display:block;
+  position:absolute;
+  z-index:-1;
+  width: 2.4rem;
+  height: 2.4rem;
   border-radius: 50%;
+  background-color: #e63946;
 }
 
-.habits {
-  padding: 0.5em;
-  padding-top: 2em;
+.contents {
+  position: relative;
+}
+
+.inp_area {
+  display:table;
+  width:100%;
+  padding: 2em;
+  background-color: #f9f9f9;
+}
+
+.inp_box {
+  display: table-cell;
+  width: 100%;
+  padding-right: 1em;
+}
+
+.btn_area {
+  display: table-cell;
+  font-size: 0;
+  white-space: nowrap;
 }
 
 .add-input {
-  font-size: 2rem;
-}
-
-.add-input {
-  margin-right: 0.2em;
+  width:100%;
+  font-size: 1.7rem;
 }
 
 .add-button {
   height: 100%;
+  padding: 7px 10px 6px;
+  border-radius: 5px;
+  background-color: #000;
   font-size: 1.5rem;
-  padding: 0.3em 0.5em;
-  background-color: green;
-  color: white;
+  color: #fff;
+}
+
+.habits {
+  padding: 2em 2em 3em;
+  box-shadow: 0em -0.5em 0.5em rgba(0,0,0,0.02);
 }
 
 .habit {
-  font-size: 2.5rem;
-  padding: 0.5em;
+  height: 60px;
+  margin-top: 0.5em;
+  padding: 0.8em 0.5em 0.8em 0.2em;
+  border: 1px solid #ececec;
+  border-radius: 0.3em;
+  font-size: 1.9rem;
   list-style: none;
+  box-shadow: 0em 0.2em 0.2em rgba(0,0,0,0.03);
+}
+
+.habit:first-child {
+  margin-top: 0;
+}
+
+.habit:after {
+  content:'';
+  display:block;
+  clear:both;
+}
+
+.habit.editMode {
+  border-color:#000;
+}
+
+.habit.editMode .habit-button:not(.habit-complete) {display: none;}
+.habit.editMode .left {width:90%;}
+
+.habit .left {
+  float:left;
+  vertical-align: middle;
+}
+
+.habit .right {
+  float:right;
+  vertical-align: middle;
 }
 
 .habit-count {
-  display: inline-block;
+  display:inline-block;
+  width: 32px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 2.0rem;
+  font-weight: bold;
+  color:#e63946;
   text-align: center;
-  font-size: 2rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  line-height: 2.5rem;
-  margin-left: 0.2em;
-  margin-right: 0.5em;
-  background-color: darkseagreen;
-  color: white;
-  border-radius: 50%;
+  letter-spacing: -1px;
+}
+
+.habit-name {
+  margin-right:0.5em;
+}
+
+.edit-input {
+  width:calc(100% - 32px);
+  padding-top:0;
+  font-size: 1.9rem;
 }
 
 .habit-button {
-  font-size: 2.5rem;
-  margin: 0 0.1em;
+  font-size: 2rem;
+  margin: 0 0.2em;
   background-color: transparent;
+  color:#666;
 }
 
 .habit-button:hover {
@@ -85,17 +183,37 @@ button {
 
 .habit-increase,
 .habit-decrease {
-  color: goldenrod;
+  color: #e63946;
+  vertical-align:bottom;
+}
+
+.habit-increase svg,
+.habit-decrease svg {
+  vertical-align: text-bottom;
+}
+
+.habit-edit {
+  font-size: 2rem;
 }
 
 .habit-delete {
   font-size: 2rem;
-  color: darkred;
+}
+
+.habit-complete {
+  font-size: 2rem;
+  color:#e63946;
+  vertical-align: middle;
 }
 
 .habits-reset {
+  display: block;
+  margin: 0 auto;
+  padding: 7px 10px 6px;
+  border-radius: 2em;
+  background-color: #000;
   font-size: 1.5rem;
-  padding: 0.2em 1em;
-  background-color: green;
-  color: white;
+  color: #fff;
 }
+
+.habits-reset svg {margin-right: 5px;}
