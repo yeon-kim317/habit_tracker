@@ -11,7 +11,6 @@ class App extends Component {
         { id: 3, name: 'Coding', count: 0, editMode: 'false'}
     ],
   };
-
   
   handleIncrement = habit => {
     const habits = this.state.habits.map(item => {
