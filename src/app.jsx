@@ -12,6 +12,7 @@ class App extends Component {
     ],
   };
 
+  
   handleIncrement = habit => {
     const habits = this.state.habits.map(item => {
       if(item.id === habit.id){
